@@ -1,0 +1,18 @@
+{
+  "name": "GitHub User Card",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "",
+  "homepage_url": "https://github.com/github-chrome-extensions/user-card",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [{
+    "matches": ["*://*.github.com/*"],
+    "css": ["src/main.css"],
+    "js": ["src/jquery.min.js", "src/multiline.js", "src/main.js"]
+  }],
+  "permissions": ["activeTab"]
+}

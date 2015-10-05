@@ -1,0 +1,101 @@
+.UserCard {
+  z-index: 999;
+  width: 230px;
+  box-shadow: 0 0 0 1px #ccc, 0 10px 30px rgba(0, 0, 0, 0.5);
+  border-radius: 3px;
+  background-color: #fff;
+}
+.UserCard:before, .UserCard:after {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  border-style: solid;
+}
+.UserCard:before {
+  left: 15px;
+  border-width: 9px;
+  border-color: transparent transparent #bbb transparent;
+}
+.UserCard:after {
+  left: 15px;
+  border-width: 9px;
+  border-color: transparent transparent #fff transparent;
+  margin-bottom: -1px;
+}
+.UserCardProfile {
+  padding: 15px;
+  overflow: hidden;
+  line-height: 1;
+}
+.UserCardProfile_photo {
+  float: left;
+  margin-right: 8px;
+  width: 50px;
+  border-radius: 3px;
+}
+.UserCardProfile_name {
+  font-size: 16px;
+}
+.UserCardProfile_username {
+  margin-top: 4px;
+  margin-bottom: 0;
+  color: #999;
+}
+.UserCardDetail {
+  background-color: whitesmoke;
+  overflow: hidden;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+.UserCardDetail ul {
+  border-top: 1px solid #e5e5e5;
+  padding: 15px;
+  list-style: none;
+}
+.UserCardInfo li {
+  padding-left: 22px;
+  margin-top: 4px;
+}
+.UserCardInfo .octicon {
+  float: left;
+  width: 16px;
+  text-align: center;
+  margin-left: -22px;
+  color: #999;
+}
+.UserCardStats {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  line-height: 1;
+}
+.UserCardStats_frame {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+.UserCardStats_count {
+  margin: 0;
+  font-size: 22px;
+}
+.UserCardStats_title {
+  color: #999;
+  margin: 0;
+}
+.UserCardOrganize {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: -10px;
+}
+.UserCardOrganize li {
+  width: 20%;
+  padding-left: 10px;
+}
+.UserCardOrganize li img {
+  width: 100%;
+}
