@@ -87,7 +87,7 @@ var getUserInfo = function(path, callback) {
 var whatTheClass = ".author-name," + // repo-detail/
   ".member-name," + // github-page/
   ".member-username," + // orgs/github-page/
-  ".alert title > a:first," + // /(dashboard)
+  ".alert .title > a:first-child," + // /(dashboard)
   ".issue-meta-section a," + // issues/
   ".timeline-comment-header-text .author," + // issues/detail
   ".gh-header-meta .author"; // issues/detail
