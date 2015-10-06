@@ -1,5 +1,5 @@
 // template http://codepen.io/ademilter/pen/EVmxXG/
-var UserCard = multiline(function () {
+var UserCard = multiline(function() {
   /*
   <div class="UserCard">
 
@@ -77,30 +77,36 @@ var UserCard = multiline(function () {
     */
 });
 
-var getUserInfo = function (path, callback) {
-  $.getJSON("https://api.github.com/users" + path, function (data) {
+var getUserInfo = function(path, callback) {
+  $.getJSON("https://api.github.com/users" + path, function(data) {
     // example data https://api.github.com/users/ademilter
     callback();
   });
 };
 
-var whatTheClass = "a[rel='author']";
+var whatTheClass = ".author-name," + // repo-detail/
+  ".member-name," + // github-page/
+  ".member-username," + // orgs/github-page/
+  ".alert title > a:first," + // /(dashboard)
+  ".issue-meta-section a," + // issues/
+  ".timeline-comment-header-text .author," + // issues/detail
+  ".gh-header-meta .author"; // issues/detail
 
-var hide = function () {
+var hide = function() {
   $('.UserCard').remove();
   clearTimeout(timer);
 };
 
-$(document).on('click', function (e) {
+$(document).on('click', function(e) {
   hide();
 });
 
-$(document).on('click', '.UserCard', function (e) {
+$(document).on('click', '.UserCard', function(e) {
   e.stopPropagation();
 });
 
-$(document).on('mouseenter', whatTheClass, function (e) {
-  getUserInfo($(this).attr("href"), function () {
+$(document).on('mouseenter', whatTheClass, function(e) {
+  getUserInfo($(this).attr("href"), function() {
     // success
   });
 
@@ -108,7 +114,7 @@ $(document).on('mouseenter', whatTheClass, function (e) {
   var thisHeight = $(this).height();
   var arrowHeight = 10;
 
-  timer = setTimeout(function () {
+  timer = setTimeout(function() {
     $('body').append(UserCard);
     $('.UserCard').css({
       "position": "absolute",
@@ -118,6 +124,6 @@ $(document).on('mouseenter', whatTheClass, function (e) {
   }, 300);
 });
 
-$(document).on('mouseleave', '.UserCard', function (e) {
+$(document).on('mouseleave', '.UserCard', function(e) {
   hide();
 });
