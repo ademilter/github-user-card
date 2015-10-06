@@ -1,5 +1,5 @@
 // template http://codepen.io/ademilter/pen/EVmxXG/
-var UserCard = multiline(function() {
+var UserCard = multiline(function () {
   /*
   <div class="UserCard">
 
@@ -79,23 +79,34 @@ var UserCard = multiline(function() {
 
 var whatTheClass = ".author, .user-mention";
 
-$(document).on('mouseenter', whatTheClass, function() {
+var hide = function () {
+  $('.UserCard').remove();
+  clearTimeout(timer);
+};
+
+$(document).on('click', function (e) {
+  hide();
+});
+
+$(document).on('click', '.UserCard', function (e) {
+  e.stopPropagation();
+});
+
+$(document).on('mouseenter', whatTheClass, function (e) {
   var thisPosition = $(this).offset();
   var thisHeight = $(this).height();
   var arrowHeight = 10;
 
-  console.log(thisPosition);
-  timer = setTimeout(function() {
+  timer = setTimeout(function () {
     $('body').append(UserCard);
     $('.UserCard').css({
       "position": "absolute",
       "left": thisPosition.left,
       "top": thisPosition.top + thisHeight + arrowHeight
-    })
-  }, 300)
+    });
+  }, 300);
 });
 
-$(document).on('mouseleave', '.UserCard', function() {
-  $('.UserCard').remove();
-  clearTimeout(timer);
+$(document).on('mouseleave', '.UserCard', function (e) {
+  hide();
 });
