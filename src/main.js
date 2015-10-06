@@ -77,7 +77,14 @@ var UserCard = multiline(function () {
     */
 });
 
-var whatTheClass = ".author, .user-mention";
+var getUserInfo = function (path, callback) {
+  $.getJSON("https://api.github.com/users" + path, function (data) {
+    // example data https://api.github.com/users/ademilter
+    callback();
+  });
+};
+
+var whatTheClass = "a[rel='author']";
 
 var hide = function () {
   $('.UserCard').remove();
@@ -93,6 +100,10 @@ $(document).on('click', '.UserCard', function (e) {
 });
 
 $(document).on('mouseenter', whatTheClass, function (e) {
+  getUserInfo($(this).attr("href"), function () {
+    // success
+  });
+
   var thisPosition = $(this).offset();
   var thisHeight = $(this).height();
   var arrowHeight = 10;
