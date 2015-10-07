@@ -7,7 +7,7 @@
   "content_scripts": [{
     "matches": ["*://*.github.com/*"],
     "css": ["src/main.css"],
-    "js": ["src/jquery.min.js", "src/multiline.js", "src/main.js"]
+    "js": ["src/jquery.min.js", "src/multiline.js", "src/main.js", "src/handlebars-v4.0.2.js"]
   }],
   "permissions": ["activeTab"]
 }
